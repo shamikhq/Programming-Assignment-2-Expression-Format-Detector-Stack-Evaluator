@@ -17,14 +17,14 @@
 ---
 
 ### Entry 2
-**Date:**
-**Entry Type:** Bug Fix / Edge Case / Engineering Decision  
-**Task worked on:**   
-**Issue or decision:**
-**Error message / symptom (if applicable):**
-**What I tried:**   
-**Fix / resolution (or final decision):**  
-**Commit(s):**
+**Date:** 3/24/2026
+**Entry Type:** Edge Case / Engineering Decision  
+**Task worked on:** Step 2 (tokenize) 
+**Issue or decision:** Filter through the line, char by char, checking if it's a valid token.
+**Error message / symptom (if applicable):** n/a
+**What I tried:** Initially I was trying to tokenize by what it should be (#, operator, etc.). This really tedious and honestly a pain. Then I realized how much easier it would be to filter by what is shouldn't be. 
+**Fix / resolution (or final decision):** By checking with printing out tokens, I could check if tokenize worked. 
+**Commit(s):** I began, tested, and implemented recommended step 2.
 
 
 ---
