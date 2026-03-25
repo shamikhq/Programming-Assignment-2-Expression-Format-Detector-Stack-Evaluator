@@ -30,14 +30,14 @@
 ---
 
 ### Entry 3
-**Date:**
-**Entry Type:** Bug Fix / Edge Case / Engineering Decision  
-**Task worked on:**   
-**Issue or decision:**
-**Error message / symptom (if applicable):**
-**What I tried:**   
-**Fix / resolution (or final decision):**  
-**Commit(s):**
+**Date:** 3/25/2026
+**Entry Type:** Edge Case / Engineering Decision  
+**Task worked on:** Recommended step 3  
+**Issue or decision:** I initially was only validating postfix based on if the count of operators was 1 less than the count of numbers.
+**Error message / symptom (if applicable):** It would mistakenly validate, for example, "3+4" as valid postfix.
+**What I tried:** Checking for the edge case of a single number input, otherwise, using the same logic as before and checking if the last token is an operator. 
+**Fix / resolution (or final decision):** It works for the edge case, and validates correctly. 
+**Commit(s):** I began the implementation and testing of step 3. 
 
 ---
 

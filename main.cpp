@@ -15,9 +15,7 @@ struct Token {
 };
 
 // Tokenizer
-bool isOperator(const string& s) {
-    return s == "+" || s == "-" || s == "*" || s == "/";
-}
+
 
 vector<Token> tokenize(const string& line) {
     vector<Token> tokens;
@@ -36,7 +34,9 @@ vector<Token> tokenize(const string& line) {
 
 // Helpers
 
-
+bool isOperator(const string& s) {
+    return s == "+" || s == "-" || s == "*" || s == "/";
+}
 
 int precedence(const string& op) {
     // TODO
@@ -46,7 +46,22 @@ int precedence(const string& op) {
 // Detection
 
 bool isValidPostfix(const vector<Token>& tokens) {
-    // TODO
+    int operators = 0;
+    int nums = 0;
+    if (tokens.size() == 1) {
+        return !(isOperator(tokens[0].value));
+    }
+    for (int i = 0; i < tokens.size(); i++) {
+        if (isOperator(tokens[i].value)) {
+            operators++;
+        }
+        else if (!isalpha(tokens[i].value[0])) {
+            nums++;
+        }
+    }
+    if (operators == nums-1 && isOperator(tokens[tokens.size()-1].value)) {
+        return true;
+    }
     return false;
 }
 
@@ -67,8 +82,30 @@ vector<Token> infixToPostfix(const vector<Token>& tokens) {
 
 double evalPostfix(const vector<Token>& tokens) {
     ArrayStack<double> stack;
-    // TODO
-    return 0.0;
+    for (int i = 0; i < tokens.size(); i++) {
+        if (!isOperator(tokens[i].value)) {
+            stack.push(stod(tokens[i].value));
+        }
+        else if (isOperator(tokens[i].value)) {
+            double right = stack.top();
+            stack.pop();
+            double left = stack.top();
+            stack.pop();
+            if (tokens[i].value == "+") {
+                stack.push(left + right);
+            }
+            else if (tokens[i].value == "-") {
+                stack.push(left - right);
+            }
+            else if (tokens[i].value == "*") {
+                stack.push(left * right);
+            }
+            else if (tokens[i].value == "/") {
+                stack.push(left / right);
+            }
+        }
+    }
+    return stack.top();
 }
 
 // Main
@@ -77,15 +114,16 @@ double evalPostfix(const vector<Token>& tokens) {
      string line;
      getline(cin, line);
 
+     //test tokenize
      vector<Token> tokens = tokenize(line);
-     for (int i = 0; i < tokens.size(); i++) {
-         cout << tokens[i].value << endl;
-     }
-
-     // if (isValidPostfix(tokens)) {
-     //     cout << "FORMAT: POSTFIX\n";
-     //     cout << "RESULT: " << evalPostfix(tokens) << "\n";
+     // for (int i = 0; i < tokens.size(); i++) {
+     //     cout << tokens[i].value << endl;
      // }
+
+     if (isValidPostfix(tokens)) {
+         cout << "FORMAT: POSTFIX\n";
+         cout << "RESULT: " << evalPostfix(tokens) << "\n";
+     }
      // else if (isValidInfix(tokens)) {
      //     vector<Token> postfix = infixToPostfix(tokens);
      //     cout << "FORMAT: INFIX\n";
