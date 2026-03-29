@@ -42,14 +42,14 @@
 ---
 
 ### Entry 4
-**Date:**
-**Entry Type:** Bug Fix / Edge Case / Engineering Decision  
-**Task worked on:**   
-**Issue or decision:**
-**Error message / symptom (if applicable):**
-**What I tried:**   
-**Fix / resolution (or final decision):**  
-**Commit(s):**
+**Date:**3/29/2026
+**Entry Type:** Bug Fix   
+**Task worked on:**     
+**Issue or decision:** When testing step 3 using the given example, it wasn't returning the correct answer. 
+**Error message / symptom (if applicable):** When evaluating 3 4 2 * +, it is returning 3, instead of 11. 
+**What I tried:** Tracing the method to see where I went wrong, using the help of print statements to see what the stack looks like through each stage of its process.  
+**Fix / resolution (or final decision):** I flipped the parameters of the main "if - else" structure to evaluate when to pop or push onto the stack. 
+**Commit(s):** I corrected and finished step 3. 
 
 ---
 

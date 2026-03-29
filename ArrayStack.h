@@ -42,6 +42,12 @@ public:
         return data.size();
     }
 
+    void print () const {
+        cout<< "Stack: " << endl;
+        for (int i = 0; i < size(); i++) {
+            cout << data[i] << " ";
+        }
+    }
 
 };
 

@@ -83,26 +83,36 @@ vector<Token> infixToPostfix(const vector<Token>& tokens) {
 double evalPostfix(const vector<Token>& tokens) {
     ArrayStack<double> stack;
     for (int i = 0; i < tokens.size(); i++) {
-        if (!isOperator(tokens[i].value)) {
-            stack.push(stod(tokens[i].value));
-        }
-        else if (isOperator(tokens[i].value)) {
+        if (isOperator(tokens[i].value)) {
             double right = stack.top();
             stack.pop();
             double left = stack.top();
             stack.pop();
+            cout<< "before";
+            stack.print();
             if (tokens[i].value == "+") {
-                stack.push(left + right);
+                double temp = left + right;
+                stack.push(temp);
+                stack.print();
             }
             else if (tokens[i].value == "-") {
-                stack.push(left - right);
+                double temp = left - right;
+                stack.push(temp);
+                stack.print();
             }
             else if (tokens[i].value == "*") {
-                stack.push(left * right);
+                double temp = left * right;
+                stack.push(temp);
+                stack.print();
             }
             else if (tokens[i].value == "/") {
-                stack.push(left / right);
+                double temp = left / right;
+                stack.push(temp);
+                stack.print();
             }
+        }
+        else {
+            stack.push(stod(tokens[i].value));
         }
     }
     return stack.top();
