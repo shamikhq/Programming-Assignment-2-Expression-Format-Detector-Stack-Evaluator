@@ -99,7 +99,12 @@ vector<Token> infixToPostfix(const vector<Token>& tokens) {
         }
     }
     for (int i = 0; i < tokens.size(); i++) {
-        if (isOperator(tokens[i].value)) {
+        if (tokens[i].value == "/" || tokens[i].value == "*") {
+            output.push_back(tokens[i]);
+        }
+    }
+    for (int i = 0; i < tokens.size(); i++) {
+        if (tokens[i].value == "+" || tokens[i].value == "-") {
             output.push_back(tokens[i]);
         }
     }

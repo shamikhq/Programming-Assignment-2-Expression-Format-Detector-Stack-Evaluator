@@ -66,11 +66,11 @@
 ---
 
 ### Entry 6
-**Date:**
-**Entry Type:** Bug Fix / Edge Case / Engineering Decision  
-**Task worked on:**   
-**Issue or decision:**
-**Error message / symptom (if applicable):**
-**What I tried:**   
-**Fix / resolution (or final decision):**  
-**Commit(s):**  
+**Date:** 3/31/2026
+**Entry Type:** Bug Fix   
+**Task worked on:** Precedence 
+**Issue or decision:** My infix to postfix wasn't taking into account the precedence of "*" and "/" over "+" and "-."
+**Error message / symptom (if applicable):** The result of 3 + 4 * 2 is 18. 
+**What I tried:** Adding "*" and "/" to the stack first, before adding "+" and "-."
+**Fix / resolution (or final decision):** Loop through the tokens, searching for "*" and "/" first and adding them to the stack, then searching for "+" and "-."
+**Commit(s):** I fixed the precedence issue of operators in the stack. 
