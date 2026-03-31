@@ -42,7 +42,7 @@
 ---
 
 ### Entry 4
-**Date:**3/29/2026
+**Date:** 3/29/2026
 **Entry Type:** Bug Fix   
 **Task worked on:**     
 **Issue or decision:** When testing step 3 using the given example, it wasn't returning the correct answer. 
@@ -54,14 +54,14 @@
 ---
 
 ### Entry 5
-**Date:**
-**Entry Type:** Bug Fix / Edge Case / Engineering Decision  
-**Task worked on:**   
-**Issue or decision:**
-**Error message / symptom (if applicable):**
-**What I tried:**   
-**Fix / resolution (or final decision):**  
-**Commit(s):**
+**Date:** 3/30/2026
+**Entry Type:** Engineering Decision  
+**Task worked on:** Step 4 and 5. 
+**Issue or decision:** After completing step 4, I began working on step 5, where I realized I had some logic issues with my tokenize. 
+**Error message / symptom (if applicable):** It was failing to skip over empty spaces, tokenizing them as well, which bugged my evalPostfix. 
+**What I tried:** Using prints and tracing the code, I fixed the condition for my tokenize method to correctly tokenize. 
+**Fix / resolution (or final decision):** isspae(temp) || !isalpha(temp) --> temp != ' ' && !isalpha(temp).
+**Commit(s):** I finished step 4, and began the testing and implementation of step 5. 
 
 ---
 
